@@ -1,0 +1,26 @@
+
+<ion-grid>
+	<form [formGroup]="UserFormGroup">
+	<ion-row justify-content-center>
+		<ion-col align-self-center size-md="6" size-lg="5" size-xs="12" >
+			<div text-center>
+				<h4>Login Form</h4>
+			</div>
+			<div padding>
+				<ion-item class="ion-margin">
+					<ion-input [class.invalid]="!UserFormGroup.controls.name.valid && (UserFormGroup.controls.name.dirty || onsubmit)" type="text" placeholder="Username" formControlName="name"></ion-input>
+				</ion-item>
+				<div *ngIf="!UserFormGroup.controls.name.valid && (UserFormGroup.controls.name.dirty || onsubmit)">Plese enter the user name</div>
+				<ion-item class="ion-margin">
+					<ion-input type="password" [class.invalid]="!UserFormGroup.controls.password.valid && (UserFormGroup.controls.password.dirty || onsubmit)" placeholder="Password" formControlName="password"></ion-input>
+				</ion-item>
+				<div *ngIf="!UserFormGroup.controls.password.valid && (UserFormGroup.controls.password.dirty || onsubmit)">Please enter password</div>
+			</div>
+
+			<div padding>
+				<ion-button size="large" expand="block" (click)="onFormSubmit()">Login</ion-button>
+			</div>
+		</ion-col>
+	</ion-row>
+</form>
+</ion-grid> 
